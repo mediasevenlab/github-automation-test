@@ -1,0 +1,17 @@
+name: Webhook Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  process_webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Запуск Python-скрипта
+        run: |
+          echo "Webhook получен!"
