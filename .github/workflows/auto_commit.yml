@@ -1,0 +1,22 @@
+name: Auto Commit & Push
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *"  # Запуск каждый день
+
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Commit changes
+        run: |
+          echo "Last update: $(date)" >> README.md
+          git add .
+          git commit -m "Автообновление кода"
+          git push
