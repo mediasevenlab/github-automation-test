@@ -24,4 +24,4 @@ jobs:
           echo "Last update: $(date)" >> README.md
           git add .
           git commit -m "Автообновление кода" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mediasevenlab/github-automation-test.git main
